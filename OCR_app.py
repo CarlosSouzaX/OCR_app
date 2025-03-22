@@ -13,7 +13,7 @@ uploaded_file = st.file_uploader("Envie sua receita médica (PNG, JPG, JPEG)", t
 
 if uploaded_file is not None:
     files = {"image": uploaded_file}
-    data = {"apikey": API_KEY, "language": "por"}
+    data = {"apikey": API_KEY, "language": "por", "isOverlayRequired": True}  # ativa o retorno do TextOverlay
 
     with st.spinner("🔍 Lendo a receita..."):
         response = requests.post(API_URL, files=files, data=data)
@@ -21,22 +21,27 @@ if uploaded_file is not None:
     if response.status_code == 200:
         try:
             ocr_data = response.json()
+
+            st.subheader("🧾 JSON bruto da API OCR.space:")
+            st.json(ocr_data)  # Exibe o JSON formatado
+
+            # Opcional: extrair texto puro
             texto = ocr_data["ParsedResults"][0]["ParsedText"]
             texto = texto.replace('\r', '').replace('\x0c', '')
 
-            st.subheader("📝 Texto extraído da imagem:")
-            st.text_area("Texto OCR:", texto.encode('utf-8', errors='ignore').decode('utf-8'), height=250)
+            st.subheader("📝 Texto extraído (OCR):")
+            st.text_area("Texto OCR:", texto, height=200)
 
-            # 🛠️ Ativa o modo debug para ver no console
+            # Dados estruturados
             dados_receita = extrair_valores_receita(texto, debug=True)
 
-            st.subheader("📊 Dados estruturados da receita:")
+            st.subheader("📊 Dados estruturados:")
             for campo, valor in dados_receita.items():
-                valor_seguro = (valor or "Não encontrado").encode("utf-8", errors="ignore").decode("utf-8")
+                valor_seguro = (valor or "Não encontrado")
                 st.write(f"**{campo}**: {valor_seguro}")
 
         except Exception as e:
-            st.error("❌ Erro ao interpretar o texto da receita.")
+            st.error("❌ Erro ao processar a resposta da API.")
             st.exception(e)
 
     else:
