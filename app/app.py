@@ -50,6 +50,9 @@ if uploaded_file:
             files={"image": open(caminho_imagem, "rb")},
             data={"apikey": OCR_API_KEY, "language": "por", "isOverlayRequired": True}
         )
+    st.write("Status Code:", response.status_code)
+    st.write("Resposta:", response.text)
+
 
     if response.status_code == 200:
         ocr_result = response.json()
