@@ -15,42 +15,47 @@ def extrair_valores_receita(texto_ocr: str):
 
     linhas = [l.strip().upper() for l in linhas if l.strip()]
 
-    bloco_atual = None
-    olho_atual = None
-    campo_atual = None
+    try:
+        idx_pwr = linhas.index("PWR")
+        if is_valor_numerico(linhas[idx_pwr + 1]):
+            valores["OD_perto_esferico"] = linhas[idx_pwr + 1]
+        if is_valor_numerico(linhas[idx_pwr + 2]):
+            valores["OE_perto_esferico"] = linhas[idx_pwr + 2]
+    except:
+        pass
 
-    for linha in linhas:
-        # Define se estamos no bloco "Longe" ou "Perto"
-        if "LONGE" in linha:
-            bloco_atual = "longe"
-            continue
-        elif "PERTO" in linha:
-            bloco_atual = "perto"
-            continue
+    try:
+        idx_cyl = linhas.index("CYL")
+        if is_valor_numerico(linhas[idx_cyl + 1]):
+            valores["OD_perto_cilindrico"] = linhas[idx_cyl + 1]
+        if is_valor_numerico(linhas[idx_cyl + 2]):
+            valores["OE_perto_cilindrico"] = linhas[idx_cyl + 2]
+    except:
+        pass
 
-        # Identifica o olho
-        if any(sig in linha for sig in ["OD", "O.D", "O.D."]):
-            olho_atual = "OD"
-            continue
-        elif any(sig in linha for sig in ["OE", "O.E", "O.E."]):
-            olho_atual = "OE"
-            continue
+    try:
+        idx_axis = linhas.index("AXIS")
+        if is_valor_numerico(linhas[idx_axis + 1]):
+            valores["OD_perto_eixo"] = linhas[idx_axis + 1]
+        if is_valor_numerico(linhas[idx_axis + 2]):
+            valores["OE_perto_eixo"] = linhas[idx_axis + 2]
+    except:
+        pass
 
-        # Identifica o campo
-        if "ESFER" in linha:
-            campo_atual = "esferico"
-            continue
-        elif "CIL" in linha:
-            campo_atual = "cilindrico"
-            continue
-        elif "EIX" in linha or "AXIS" in linha:
-            campo_atual = "eixo"
-            continue
-
-        # Se a linha atual for um número e sabemos onde estamos, atribuímos
-        if is_valor_numerico(linha) and bloco_atual and olho_atual and campo_atual:
-            chave = f"{olho_atual}_{bloco_atual}_{campo_atual}".lower()
-            valores[chave] = linha
-            campo_atual = None  # reseta após uso
+    regex_valores = re.findall(r'[-+]?\d+(?:[\.,]\d+)?', texto_ocr)
+    if len(regex_valores) >= 6:
+        valores["OD_longe_esferico"] = regex_valores[0]
+        valores["OD_longe_cilindrico"] = regex_valores[1]
+        valores["OD_longe_eixo"] = regex_valores[2]
+        valores["OE_longe_esferico"] = regex_valores[3]
+        valores["OE_longe_cilindrico"] = regex_valores[4]
+        valores["OE_longe_eixo"] = regex_valores[5]
+    if len(regex_valores) >= 12:
+        valores["OD_perto_esferico"] = valores["OD_perto_esferico"] or regex_valores[6]
+        valores["OD_perto_cilindrico"] = valores["OD_perto_cilindrico"] or regex_valores[7]
+        valores["OD_perto_eixo"] = valores["OD_perto_eixo"] or regex_valores[8]
+        valores["OE_perto_esferico"] = valores["OE_perto_esferico"] or regex_valores[9]
+        valores["OE_perto_cilindrico"] = valores["OE_perto_cilindrico"] or regex_valores[10]
+        valores["OE_perto_eixo"] = valores["OE_perto_eixo"] or regex_valores[11]
 
     return valores
