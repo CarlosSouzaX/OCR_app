@@ -27,7 +27,8 @@ if uploaded_file is not None:
             st.subheader("📝 Texto extraído da imagem:")
             st.text_area("Texto OCR:", texto.encode('utf-8', errors='ignore').decode('utf-8'), height=250)
 
-            dados_receita = extrair_valores_receita(texto)
+            # 🛠️ Ativa o modo debug para ver no console
+            dados_receita = extrair_valores_receita(texto, debug=True)
 
             st.subheader("📊 Dados estruturados da receita:")
             for campo, valor in dados_receita.items():
