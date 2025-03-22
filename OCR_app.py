@@ -1,7 +1,7 @@
 # app.py
 import streamlit as st
 import requests
-from ocr_parser_json import extrair_receita_estruturada_do_json
+from ocr_parser import extrair_receita_estruturada_do_json
 
 # API
 API_URL = "https://api.ocr.space/parse/image"
