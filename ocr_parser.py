@@ -5,7 +5,6 @@ def is_valor_numerico(valor):
     return re.match(r'^[-+]?\d+(?:[\.,]\d+)?$', valor) is not None
 
 def extrair_valores_receita(texto_ocr: str):
-    linhas = texto_ocr.splitlines()
     valores = {
         "OD_longe_esferico": None, "OD_longe_cilindrico": None, "OD_longe_eixo": None,
         "OE_longe_esferico": None, "OE_longe_cilindrico": None, "OE_longe_eixo": None,
@@ -13,13 +12,12 @@ def extrair_valores_receita(texto_ocr: str):
         "OE_perto_esferico": None, "OE_perto_cilindrico": None, "OE_perto_eixo": None
     }
 
+    linhas = texto_ocr.splitlines()
     linhas = [l.strip().upper() for l in linhas if l.strip()]
 
-    bloco_atual = None
-    olho_atual = None
-    campo_atual = None
+    bloco_atual = None  # "longe" ou "perto"
 
-    for linha in linhas:
+    for i, linha in enumerate(linhas):
         if "LONGE" in linha:
             bloco_atual = "longe"
             continue
@@ -27,26 +25,30 @@ def extrair_valores_receita(texto_ocr: str):
             bloco_atual = "perto"
             continue
 
-        if any(sig in linha for sig in ["OD", "O.D", "O.D."]):
-            olho_atual = "OD"
-            continue
-        elif any(sig in linha for sig in ["OE", "O.E", "O.E."]):
-            olho_atual = "OE"
-            continue
+        if bloco_atual and linha in ["OD", "O.D", "O.D."]:
+            # Coleta até 3 valores nas próximas 3 linhas
+            esf = linhas[i+1] if i+1 < len(linhas) else ""
+            cil = linhas[i+2] if i+2 < len(linhas) else ""
+            eixo = linhas[i+3] if i+3 < len(linhas) else ""
 
-        if "ESFER" in linha:
-            campo_atual = "esferico"
-            continue
-        elif "CIL" in linha:
-            campo_atual = "cilindrico"
-            continue
-        elif "EIX" in linha or "AXIS" in linha:
-            campo_atual = "eixo"
-            continue
+            if is_valor_numerico(esf):
+                valores[f"OD_{bloco_atual}_esferico"] = esf
+            if is_valor_numerico(cil):
+                valores[f"OD_{bloco_atual}_cilindrico"] = cil
+            if is_valor_numerico(eixo):
+                valores[f"OD_{bloco_atual}_eixo"] = eixo
 
-        if is_valor_numerico(linha) and bloco_atual and olho_atual and campo_atual:
-            chave = f"{olho_atual}_{bloco_atual}_{campo_atual}".lower()
-            valores[chave] = linha
-            campo_atual = None
+        elif bloco_atual and linha in ["OE", "O.E", "O.E."]:
+            # Coleta até 3 valores nas próximas 3 linhas
+            esf = linhas[i+1] if i+1 < len(linhas) else ""
+            cil = linhas[i+2] if i+2 < len(linhas) else ""
+            eixo = linhas[i+3] if i+3 < len(linhas) else ""
+
+            if is_valor_numerico(esf):
+                valores[f"OE_{bloco_atual}_esferico"] = esf
+            if is_valor_numerico(cil):
+                valores[f"OE_{bloco_atual}_cilindrico"] = cil
+            if is_valor_numerico(eixo):
+                valores[f"OE_{bloco_atual}_eixo"] = eixo
 
     return valores

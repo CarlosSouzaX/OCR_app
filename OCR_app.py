@@ -32,7 +32,7 @@ if uploaded_file is not None:
 
             st.subheader("📊 Dados estruturados da receita:")
             for campo, valor in dados_receita.items():
-                valor_seguro = (valor or "Não encontrado").encode("utf-8", errors="ignore").decode("utf-8")
+                valor_seguro = (valor or "").encode("utf-8", errors="ignore").decode("utf-8")
                 st.write(f"**{campo}**: {valor_seguro}")
 
         except Exception as e:
