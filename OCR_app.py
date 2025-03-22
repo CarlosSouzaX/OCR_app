@@ -3,12 +3,15 @@ import streamlit as st
 import requests
 from ocr_parser import extrair_valores_receita
 
+# 📌 API OCR.space
 API_URL = "https://api.ocr.space/parse/image"
 API_KEY = st.secrets["API_KEY"]
 
+# 📱 Configuração da interface
 st.set_page_config(page_title="Centro Multifocal - OCR", layout="centered")
 st.title("📄 Leitor de Receita Médica - Centro Multifocal")
 
+# 📤 Upload de imagem
 uploaded_file = st.file_uploader("Envie sua receita médica (PNG, JPG, JPEG)", type=["png", "jpg", "jpeg"])
 
 if uploaded_file is not None:
@@ -27,6 +30,7 @@ if uploaded_file is not None:
             st.subheader("📝 Texto extraído da imagem:")
             st.text_area("Texto OCR:", texto.encode('utf-8', errors='ignore').decode('utf-8'), height=250)
 
+            # 🔍 Extrai os campos estruturados
             dados_receita = extrair_valores_receita(texto)
 
             st.subheader("📊 Dados estruturados da receita:")
@@ -39,5 +43,5 @@ if uploaded_file is not None:
             st.exception(e)
 
     else:
-        st.error("❌ Erro na API do OCR.")
+        st.error("❌ Erro ao processar a imagem.")
         st.code(response.text)
