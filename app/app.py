@@ -6,7 +6,7 @@ import streamlit as st
 from datetime import datetime
 
 # Configurações
-OCR_API_KEY = "SUA_CHAVE_OCR"
+OCR_API_KEY = "API_KEY"
 OCR_API_URL = "https://api.ocr.space/parse/image"
 
 # Diretórios
