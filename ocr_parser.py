@@ -1,7 +1,7 @@
 # ocr_parser.py
 import re
 
-def is_valor_numerico(valor):
+def is_valor_numerico(valor: str) -> bool:
     return re.match(r'^[-+]?\d+(?:[\.,]\d+)?$', valor) is not None
 
 def extrair_valores_receita(texto_ocr: str):
@@ -15,29 +15,33 @@ def extrair_valores_receita(texto_ocr: str):
     linhas = texto_ocr.splitlines()
     linhas = [l.strip().upper() for l in linhas if l.strip()]
 
-    # Filtra linhas que comecem com OD ou OE e tenham pelo menos 3 valores
-    linhas_validas = []
-    for linha in linhas:
-        if linha.startswith(("OD", "O.D")) or linha.startswith(("OE", "O.E")):
-            partes = linha.split()
-            if len(partes) >= 4 and all(is_valor_numerico(p) or p == '-' for p in partes[1:4]):
-                linhas_validas.append(partes)
+    # Etapa 1: encontrar a ordem dos olhos (OD, OE, OD, OE)
+    indices_olhos = [i for i, l in enumerate(linhas) if l in ["OD", "O.D", "OE", "O.E"]]
+    if len(indices_olhos) != 4:
+        return valores  # Não está no padrão esperado
 
-    if len(linhas_validas) >= 4:
-        campos = [
-            ("OD_longe_", linhas_validas[0]),
-            ("OE_longe_", linhas_validas[1]),
-            ("OD_perto_", linhas_validas[2]),
-            ("OE_perto_", linhas_validas[3]),
-        ]
+    olhos = ["OD_longe", "OE_longe", "OD_perto", "OE_perto"]
 
-        for prefixo, partes in campos:
-            esf, cil, eixo = partes[1], partes[2], partes[3]
-            if is_valor_numerico(esf):
-                valores[prefixo + "esferico"] = esf
-            if is_valor_numerico(cil):
-                valores[prefixo + "cilindrico"] = cil
-            if is_valor_numerico(eixo):
-                valores[prefixo + "eixo"] = eixo
+    # Etapa 2: encontrar valores por seção
+    def capturar_valores(titulo):
+        try:
+            idx = linhas.index(titulo)
+            return [linhas[idx + 1], linhas[idx + 2], linhas[idx + 3], linhas[idx + 4]]
+        except:
+            return [None, None, None, None]
+
+    esfericos = capturar_valores("ESFÉRICO")
+    cilindricos = capturar_valores("CILINDRO")
+    eixos = capturar_valores("EIXO")
+
+    # Etapa 3: montar os campos
+    for i in range(4):
+        chave_base = olhos[i]
+        if esfericos[i] and is_valor_numerico(esfericos[i]):
+            valores[f"{chave_base}_esferico"] = esfericos[i]
+        if cilindricos[i] and is_valor_numerico(cilindricos[i]):
+            valores[f"{chave_base}_cilindrico"] = cilindricos[i]
+        if eixos[i] and is_valor_numerico(eixos[i]):
+            valores[f"{chave_base}_eixo"] = eixos[i]
 
     return valores
