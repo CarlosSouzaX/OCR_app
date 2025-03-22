@@ -35,9 +35,8 @@ if uploaded_file:
     nome_arquivo = f"{nome_base}.{extensao}"
 
     caminho_imagem = os.path.join(IMAGES_DIR, nome_arquivo)
-    caminho_json = os.path.join(OCR_DIR, f"{nome_base}.json")
 
-    # Salva a imagem
+    # Salva a imagem localmente
     with open(caminho_imagem, "wb") as f:
         f.write(uploaded_file.getbuffer())
 
@@ -45,22 +44,35 @@ if uploaded_file:
 
     # Faz OCR
     with st.spinner("Processando OCR..."):
-        response = requests.post(
-            OCR_API_URL,
-            files={"image": open(caminho_imagem, "rb")},
-            data={"apikey": OCR_API_KEY, "language": "por", "isOverlayRequired": True}
-        )
+        with open(caminho_imagem, "rb") as image_file:
+            response = requests.post(
+                OCR_API_URL,
+                files={"image": image_file},
+                data={"apikey": OCR_API_KEY, "language": "por", "isOverlayRequired": True}
+            )
+
     st.write("Status Code:", response.status_code)
     st.write("Resposta:", response.text)
-
 
     if response.status_code == 200:
         ocr_result = response.json()
 
-        with open(caminho_json, "w", encoding="utf-8") as f:
-            json.dump(ocr_result, f, indent=2, ensure_ascii=False)
+        st.success("OCR processado com sucesso!")
+        
+        # Exibe o texto extraído
+        st.subheader("Texto Extraído")
+        st.code(ocr_result["ParsedResults"][0]["ParsedText"], language="text")
 
-        st.success(f"OCR salvo com sucesso ✅ em: {caminho_json}")
-        st.code(ocr_result["ParsedResults"][0]["ParsedText"])
+        # Exibe o JSON completo
+        st.subheader("JSON Completo")
+        st.json(ocr_result)
+
+        # Botão para baixar o JSON manualmente
+        st.download_button(
+            label="Baixar JSON",
+            data=json.dumps(ocr_result, indent=2, ensure_ascii=False),
+            file_name=f"{nome_base}.json",
+            mime="application/json"
+        )
     else:
         st.error("Erro ao processar OCR.")
