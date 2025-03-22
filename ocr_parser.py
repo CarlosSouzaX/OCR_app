@@ -15,33 +15,48 @@ def extrair_valores_receita(texto_ocr: str):
     linhas = texto_ocr.splitlines()
     linhas = [l.strip().upper() for l in linhas if l.strip()]
 
-    # Etapa 1: encontrar a ordem dos olhos (OD, OE, OD, OE)
-    indices_olhos = [i for i, l in enumerate(linhas) if l in ["OD", "O.D", "OE", "O.E"]]
-    if len(indices_olhos) != 4:
-        return valores  # Não está no padrão esperado
+    bloco = None  # "longe" ou "perto"
+    index = 0
 
-    olhos = ["OD_longe", "OE_longe", "OD_perto", "OE_perto"]
+    while index < len(linhas):
+        linha = linhas[index]
 
-    # Etapa 2: encontrar valores por seção
-    def capturar_valores(titulo):
-        try:
-            idx = linhas.index(titulo)
-            return [linhas[idx + 1], linhas[idx + 2], linhas[idx + 3], linhas[idx + 4]]
-        except:
-            return [None, None, None, None]
+        if "LONGE" in linha:
+            bloco = "longe"
+            index += 1
+            continue
+        elif "PERTO" in linha:
+            bloco = "perto"
+            index += 1
+            continue
 
-    esfericos = capturar_valores("ESFÉRICO")
-    cilindricos = capturar_valores("CILINDRO")
-    eixos = capturar_valores("EIXO")
+        if bloco and linha in ["OD", "O.D"]:
+            valores = preencher_valores(linhas, index, bloco, "OD", valores)
+            index += 4
+            continue
+        elif bloco and linha in ["OE", "O.E"]:
+            valores = preencher_valores(linhas, index, bloco, "OE", valores)
+            index += 4
+            continue
 
-    # Etapa 3: montar os campos
-    for i in range(4):
-        chave_base = olhos[i]
-        if esfericos[i] and is_valor_numerico(esfericos[i]):
-            valores[f"{chave_base}_esferico"] = esfericos[i]
-        if cilindricos[i] and is_valor_numerico(cilindricos[i]):
-            valores[f"{chave_base}_cilindrico"] = cilindricos[i]
-        if eixos[i] and is_valor_numerico(eixos[i]):
-            valores[f"{chave_base}_eixo"] = eixos[i]
+        index += 1
+
+    return valores
+
+def preencher_valores(linhas, index, bloco, olho, valores):
+    try:
+        esf = linhas[index + 1]
+        cil = linhas[index + 2]
+        eixo = linhas[index + 3]
+        prefixo = f"{olho}_{bloco}_".lower()
+
+        if is_valor_numerico(esf):
+            valores[prefixo + "esferico"] = esf
+        if is_valor_numerico(cil):
+            valores[prefixo + "cilindrico"] = cil
+        if is_valor_numerico(eixo):
+            valores[prefixo + "eixo"] = eixo
+    except IndexError:
+        pass
 
     return valores
