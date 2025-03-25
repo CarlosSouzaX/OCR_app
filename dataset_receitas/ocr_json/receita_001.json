@@ -1,0 +1,245 @@
+{
+  "ParsedResults": [
+    {
+      "TextOverlay": {
+        "Lines": [
+          {
+            "LineText": "Para longe",
+            "Words": [
+              {
+                "WordText": "Para",
+                "Left": 39.0,
+                "Top": 40.0,
+                "Height": 15.0,
+                "Width": 37.0
+              },
+              {
+                "WordText": "longe",
+                "Left": 83.0,
+                "Top": 39.0,
+                "Height": 20.0,
+                "Width": 47.0
+              }
+            ],
+            "MaxHeight": 20.0,
+            "MinTop": 39.0
+          },
+          {
+            "LineText": "Para perto",
+            "Words": [
+              {
+                "WordText": "Para",
+                "Left": 39.0,
+                "Top": 95.0,
+                "Height": 15.0,
+                "Width": 37.0
+              },
+              {
+                "WordText": "perto",
+                "Left": 83.0,
+                "Top": 96.0,
+                "Height": 17.0,
+                "Width": 47.0
+              }
+            ],
+            "MaxHeight": 17.0,
+            "MinTop": 95.0
+          },
+          {
+            "LineText": "OD",
+            "Words": [
+              {
+                "WordText": "OD",
+                "Left": 178.0,
+                "Top": 40.0,
+                "Height": 15.0,
+                "Width": 27.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 40.0
+          },
+          {
+            "LineText": "OE",
+            "Words": [
+              {
+                "WordText": "OE",
+                "Left": 179.0,
+                "Top": 68.0,
+                "Height": 15.0,
+                "Width": 24.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 68.0
+          },
+          {
+            "LineText": "OD",
+            "Words": [
+              {
+                "WordText": "OD",
+                "Left": 178.0,
+                "Top": 95.0,
+                "Height": 14.0,
+                "Width": 27.0
+              }
+            ],
+            "MaxHeight": 14.0,
+            "MinTop": 95.0
+          },
+          {
+            "LineText": "OE",
+            "Words": [
+              {
+                "WordText": "OE",
+                "Left": 179.0,
+                "Top": 121.0,
+                "Height": 15.0,
+                "Width": 24.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 121.0
+          },
+          {
+            "LineText": "Esférico",
+            "Words": [
+              {
+                "WordText": "Esférico",
+                "Left": 247.0,
+                "Top": 10.0,
+                "Height": 16.0,
+                "Width": 68.0
+              }
+            ],
+            "MaxHeight": 16.0,
+            "MinTop": 10.0
+          },
+          {
+            "LineText": "+1.25",
+            "Words": [
+              {
+                "WordText": "+1.25",
+                "Left": 257.0,
+                "Top": 95.0,
+                "Height": 14.0,
+                "Width": 47.0
+              }
+            ],
+            "MaxHeight": 14.0,
+            "MinTop": 95.0
+          },
+          {
+            "LineText": "+0.75",
+            "Words": [
+              {
+                "WordText": "+0.75",
+                "Left": 257.0,
+                "Top": 121.0,
+                "Height": 15.0,
+                "Width": 47.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 121.0
+          },
+          {
+            "LineText": "Cilindro",
+            "Words": [
+              {
+                "WordText": "Cilindro",
+                "Left": 357.0,
+                "Top": 10.0,
+                "Height": 16.0,
+                "Width": 67.0
+              }
+            ],
+            "MaxHeight": 16.0,
+            "MinTop": 10.0
+          },
+          {
+            "LineText": "-1.75",
+            "Words": [
+              {
+                "WordText": "-1.75",
+                "Left": 368.0,
+                "Top": 95.0,
+                "Height": 14.0,
+                "Width": 44.0
+              }
+            ],
+            "MaxHeight": 14.0,
+            "MinTop": 95.0
+          },
+          {
+            "LineText": "-2.25",
+            "Words": [
+              {
+                "WordText": "-2.25",
+                "Left": 368.0,
+                "Top": 121.0,
+                "Height": 15.0,
+                "Width": 44.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 121.0
+          },
+          {
+            "LineText": "Eixo",
+            "Words": [
+              {
+                "WordText": "Eixo",
+                "Left": 470.0,
+                "Top": 11.0,
+                "Height": 15.0,
+                "Width": 35.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 11.0
+          },
+          {
+            "LineText": "10",
+            "Words": [
+              {
+                "WordText": "10",
+                "Left": 477.0,
+                "Top": 95.0,
+                "Height": 14.0,
+                "Width": 21.0
+              }
+            ],
+            "MaxHeight": 14.0,
+            "MinTop": 95.0
+          },
+          {
+            "LineText": "180",
+            "Words": [
+              {
+                "WordText": "180",
+                "Left": 472.0,
+                "Top": 121.0,
+                "Height": 15.0,
+                "Width": 31.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 121.0
+          }
+        ],
+        "HasOverlay": true,
+        "Message": "Total lines: 15"
+      },
+      "TextOrientation": "0",
+      "FileParseExitCode": 1,
+      "ParsedText": "Para longe\r\nPara perto\r\nOD\r\nOE\r\nOD\r\nOE\r\nEsférico\r\n+1.25\r\n+0.75\r\nCilindro\r\n-1.75\r\n-2.25\r\nEixo\r\n10\r\n180\r\n",
+      "ErrorMessage": "",
+      "ErrorDetails": ""
+    }
+  ],
+  "OCRExitCode": 1,
+  "IsErroredOnProcessing": false,
+  "ProcessingTimeInMilliseconds": "328",
+  "SearchablePDFURL": "Searchable PDF not generated as it was not requested."
+}

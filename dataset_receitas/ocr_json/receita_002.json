@@ -1,0 +1,399 @@
+{
+  "ParsedResults": [
+    {
+      "TextOverlay": {
+        "Lines": [
+          {
+            "LineText": "OD",
+            "Words": [
+              {
+                "WordText": "OD",
+                "Left": 193.0,
+                "Top": 106.0,
+                "Height": 23.0,
+                "Width": 50.0
+              }
+            ],
+            "MaxHeight": 23.0,
+            "MinTop": 106.0
+          },
+          {
+            "LineText": "ESFÉRICO",
+            "Words": [
+              {
+                "WordText": "ESFÉRICO",
+                "Left": 214.0,
+                "Top": 377.0,
+                "Height": 17.0,
+                "Width": 99.0
+              }
+            ],
+            "MaxHeight": 17.0,
+            "MinTop": 377.0
+          },
+          {
+            "LineText": "DIREÇÃO DO EIXO",
+            "Words": [
+              {
+                "WordText": "DIREÇÃO",
+                "Left": 317.0,
+                "Top": 54.0,
+                "Height": 21.0,
+                "Width": 87.0
+              },
+              {
+                "WordText": "DO",
+                "Left": 411.0,
+                "Top": 56.0,
+                "Height": 15.0,
+                "Width": 28.0
+              },
+              {
+                "WordText": "EIXO",
+                "Left": 445.0,
+                "Top": 56.0,
+                "Height": 15.0,
+                "Width": 45.0
+              }
+            ],
+            "MaxHeight": 21.0,
+            "MinTop": 54.0
+          },
+          {
+            "LineText": "CILÍNDRICO",
+            "Words": [
+              {
+                "WordText": "CILÍNDRICO",
+                "Left": 344.0,
+                "Top": 377.0,
+                "Height": 17.0,
+                "Width": 124.0
+              }
+            ],
+            "MaxHeight": 17.0,
+            "MinTop": 377.0
+          },
+          {
+            "LineText": "- 2,50",
+            "Words": [
+              {
+                "WordText": "-",
+                "Left": 357.0,
+                "Top": 435.0,
+                "Height": 4.0,
+                "Width": 11.0
+              },
+              {
+                "WordText": "2,50",
+                "Left": 387.0,
+                "Top": 427.0,
+                "Height": 19.0,
+                "Width": 59.0
+              }
+            ],
+            "MaxHeight": 19.0,
+            "MinTop": 427.0
+          },
+          {
+            "LineText": "- 2,50",
+            "Words": [
+              {
+                "WordText": "-",
+                "Left": 362.0,
+                "Top": 482.0,
+                "Height": 4.0,
+                "Width": 11.0
+              },
+              {
+                "WordText": "2,50",
+                "Left": 392.0,
+                "Top": 474.0,
+                "Height": 19.0,
+                "Width": 59.0
+              }
+            ],
+            "MaxHeight": 19.0,
+            "MinTop": 474.0
+          },
+          {
+            "LineText": "OE",
+            "Words": [
+              {
+                "WordText": "OE",
+                "Left": 570.0,
+                "Top": 107.0,
+                "Height": 22.0,
+                "Width": 49.0
+              }
+            ],
+            "MaxHeight": 22.0,
+            "MinTop": 107.0
+          },
+          {
+            "LineText": "90 80",
+            "Words": [
+              {
+                "WordText": "90",
+                "Left": 586.0,
+                "Top": 146.0,
+                "Height": 10.0,
+                "Width": 14.0
+              },
+              {
+                "WordText": "80",
+                "Left": 609.0,
+                "Top": 147.0,
+                "Height": 11.0,
+                "Width": 14.0
+              }
+            ],
+            "MaxHeight": 11.0,
+            "MinTop": 146.0
+          },
+          {
+            "LineText": "EIXO",
+            "Words": [
+              {
+                "WordText": "EIXO",
+                "Left": 509.0,
+                "Top": 381.0,
+                "Height": 14.0,
+                "Width": 50.0
+              }
+            ],
+            "MaxHeight": 14.0,
+            "MinTop": 381.0
+          },
+          {
+            "LineText": "180",
+            "Words": [
+              {
+                "WordText": "180",
+                "Left": 512.0,
+                "Top": 427.0,
+                "Height": 17.0,
+                "Width": 43.0
+              }
+            ],
+            "MaxHeight": 17.0,
+            "MinTop": 427.0
+          },
+          {
+            "LineText": "180",
+            "Words": [
+              {
+                "WordText": "180",
+                "Left": 512.0,
+                "Top": 474.0,
+                "Height": 17.0,
+                "Width": 43.0
+              }
+            ],
+            "MaxHeight": 17.0,
+            "MinTop": 474.0
+          },
+          {
+            "LineText": "Para",
+            "Words": [
+              {
+                "WordText": "Para",
+                "Left": 69.0,
+                "Top": 427.0,
+                "Height": 15.0,
+                "Width": 54.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 427.0
+          },
+          {
+            "LineText": "O.D",
+            "Words": [
+              {
+                "WordText": "O.D",
+                "Left": 153.0,
+                "Top": 427.0,
+                "Height": 13.0,
+                "Width": 36.0
+              }
+            ],
+            "MaxHeight": 13.0,
+            "MinTop": 427.0
+          },
+          {
+            "LineText": "- 9,00",
+            "Words": [
+              {
+                "WordText": "-",
+                "Left": 217.0,
+                "Top": 435.0,
+                "Height": 3.0,
+                "Width": 10.0
+              },
+              {
+                "WordText": "9,00",
+                "Left": 247.0,
+                "Top": 427.0,
+                "Height": 19.0,
+                "Width": 58.0
+              }
+            ],
+            "MaxHeight": 19.0,
+            "MinTop": 427.0
+          },
+          {
+            "LineText": "Long",
+            "Words": [
+              {
+                "WordText": "Long",
+                "Left": 69.0,
+                "Top": 457.0,
+                "Height": 19.0,
+                "Width": 54.0
+              }
+            ],
+            "MaxHeight": 19.0,
+            "MinTop": 457.0
+          },
+          {
+            "LineText": "- 9,50",
+            "Words": [
+              {
+                "WordText": "-",
+                "Left": 217.0,
+                "Top": 481.0,
+                "Height": 5.0,
+                "Width": 10.0
+              },
+              {
+                "WordText": "9,50",
+                "Left": 247.0,
+                "Top": 474.0,
+                "Height": 19.0,
+                "Width": 58.0
+              }
+            ],
+            "MaxHeight": 19.0,
+            "MinTop": 474.0
+          },
+          {
+            "LineText": "À•àição de:",
+            "Words": [
+              {
+                "WordText": "À•àição",
+                "Left": 56.0,
+                "Top": 530.0,
+                "Height": 19.0,
+                "Width": 73.0
+              },
+              {
+                "WordText": "de:",
+                "Left": 142.0,
+                "Top": 530.0,
+                "Height": 15.0,
+                "Width": 33.0
+              }
+            ],
+            "MaxHeight": 19.0,
+            "MinTop": 530.0
+          },
+          {
+            "LineText": "Para O.D",
+            "Words": [
+              {
+                "WordText": "Para",
+                "Left": 69.0,
+                "Top": 592.0,
+                "Height": 15.0,
+                "Width": 54.0
+              },
+              {
+                "WordText": "O.D",
+                "Left": 152.0,
+                "Top": 592.0,
+                "Height": 14.0,
+                "Width": 36.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 592.0
+          },
+          {
+            "LineText": "pert",
+            "Words": [
+              {
+                "WordText": "pert",
+                "Left": 68.0,
+                "Top": 623.0,
+                "Height": 15.0,
+                "Width": 54.0
+              }
+            ],
+            "MaxHeight": 15.0,
+            "MinTop": 623.0
+          },
+          {
+            "LineText": "o.E",
+            "Words": [
+              {
+                "WordText": "o.E",
+                "Left": 151.0,
+                "Top": 651.0,
+                "Height": 13.0,
+                "Width": 37.0
+              }
+            ],
+            "MaxHeight": 13.0,
+            "MinTop": 651.0
+          },
+          {
+            "LineText": "Opcionais",
+            "Words": [
+              {
+                "WordText": "Opcionais",
+                "Left": 56.0,
+                "Top": 707.0,
+                "Height": 18.0,
+                "Width": 109.0
+              }
+            ],
+            "MaxHeight": 18.0,
+            "MinTop": 707.0
+          },
+          {
+            "LineText": "MEDIR DNP",
+            "Words": [
+              {
+                "WordText": "MEDIR",
+                "Left": 55.0,
+                "Top": 744.0,
+                "Height": 17.0,
+                "Width": 78.0
+              },
+              {
+                "WordText": "DNP",
+                "Left": 147.0,
+                "Top": 745.0,
+                "Height": 16.0,
+                "Width": 46.0
+              }
+            ],
+            "MaxHeight": 17.0,
+            "MinTop": 744.0
+          }
+        ],
+        "HasOverlay": true,
+        "Message": "Total lines: 22"
+      },
+      "TextOrientation": "0",
+      "FileParseExitCode": 1,
+      "ParsedText": "OD\r\nESFÉRICO\r\nDIREÇÃO DO EIXO\r\nCILÍNDRICO\r\n- 2,50\r\n- 2,50\r\nOE\r\n90 80\r\nEIXO\r\n180\r\n180\r\nPara\r\nO.D\r\n- 9,00\r\nLong\r\n- 9,50\r\nÀ•àição de:\r\nPara O.D\r\npert\r\no.E\r\nOpcionais\r\nMEDIR DNP\r\n",
+      "ErrorMessage": "",
+      "ErrorDetails": ""
+    }
+  ],
+  "OCRExitCode": 1,
+  "IsErroredOnProcessing": false,
+  "ProcessingTimeInMilliseconds": "328",
+  "SearchablePDFURL": "Searchable PDF not generated as it was not requested."
+}

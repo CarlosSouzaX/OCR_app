@@ -5,10 +5,10 @@
   "OE_longe_esferico": null,
   "OE_longe_cilindrico": null,
   "OE_longe_eixo": null,
-  "OD_perto_esferico": null,
-  "OD_perto_cilindrico": null,
-  "OD_perto_eixo": null,
-  "OE_perto_esferico": null,
-  "OE_perto_cilindrico": null,
-  "OE_perto_eixo": null
+  "OD_perto_esferico": 1.25,
+  "OD_perto_cilindrico": -1.75,
+  "OD_perto_eixo": 10,
+  "OE_perto_esferico": 0.75,
+  "OE_perto_cilindrico": -2.25,
+  "OE_perto_eixo": 180
 }
